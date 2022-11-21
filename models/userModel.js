@@ -1,4 +1,4 @@
-const mongoose = required("mongoose");
+const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
@@ -10,4 +10,4 @@ const userSchema = new Schema({
    created_at: { type: Number },
 });
 
-export default mongoose.model("user", userSchema, "user");
+module.exports = mongoose.model("user", userSchema, "user");

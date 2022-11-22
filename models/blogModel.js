@@ -1,4 +1,4 @@
-const mongoose = required("mongoose");
+const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
@@ -11,4 +11,4 @@ const blogSchema = new Schema({
    owner: { type: ObjectId, ref: "user" },
 });
 
-export default mongoose.model("blog", blogSchema, "blog");
+module.exports = mongoose.model("blog", blogSchema, "blog");

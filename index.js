@@ -4,6 +4,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 const userRouter = require("./routers/user.route");
+const postsRouter = require("./routers/post.route");
 
 //connect db
 mongoose
@@ -27,7 +28,7 @@ app.listen(port, () => {
 });
 
 app.use("/users", userRouter);
-// app.use("/posts", postsRouter);
+app.use("/posts", postsRouter);
 app.get("/", (req, res) => {
    res.send("Welcome to tour API");
 });

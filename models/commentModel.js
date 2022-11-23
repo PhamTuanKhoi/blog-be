@@ -1,4 +1,4 @@
-const mongoose = required("mongoose");
+const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
@@ -10,4 +10,4 @@ const commentSchema = new Schema({
    blog: { type: ObjectId, ref: "blog" },
 });
 
-export default mongoose.model("comment", commentSchema, "comment");
+module.exports = mongoose.model("comment", commentSchema, "comment");

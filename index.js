@@ -5,6 +5,7 @@ require("dotenv").config();
 
 const userRouter = require("./routers/user.route");
 const postsRouter = require("./routers/post.route");
+const cmtRouter = require("./routers/cmt.route");
 
 //connect db
 mongoose
@@ -29,6 +30,7 @@ app.listen(port, () => {
 
 app.use("/users", userRouter);
 app.use("/posts", postsRouter);
+app.use("/cmt", cmtRouter);
 app.get("/", (req, res) => {
    res.send("Welcome to tour API");
 });

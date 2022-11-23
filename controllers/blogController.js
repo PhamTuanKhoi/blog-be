@@ -37,6 +37,27 @@ class BlogController {
             {
                $unwind: "$user",
             },
+            {
+               $lookup: {
+                  from: "comment",
+                  localField: "_id",
+                  foreignField: "blog",
+                  pipeline: [
+                     {
+                        $lookup: {
+                           from: "user",
+                           localField: "owner",
+                           foreignField: "_id",
+                           as: "user",
+                        },
+                     },
+                     {
+                        $unwind: "$user",
+                     },
+                  ],
+                  as: "cmt",
+               },
+            },
          ]);
          res.status(200).json(blog);
       } catch (error) {
